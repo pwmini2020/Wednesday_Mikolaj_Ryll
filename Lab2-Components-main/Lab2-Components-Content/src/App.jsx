@@ -1,5 +1,5 @@
-import React from 'react'
-import GameAdmin from './GameAdmin'
+import React from "react"
+import GameAdmin from "./GameAdmin"
 
 const App = () => (
   <GameAdmin />
