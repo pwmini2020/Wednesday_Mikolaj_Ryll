@@ -1,10 +1,9 @@
 import React from 'react';
+import CarListComponent from './CarListComponent'
 
 function App() {
 	return (
-		<div>
-			Good luck!
-		</div>
+		<CarListComponent/>
 	);
 }
 
