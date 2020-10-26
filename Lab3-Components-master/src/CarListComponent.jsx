@@ -12,6 +12,7 @@ export default class CarListComponent extends React.Component
         this.state = {cars: cars};
         this.onSearchClick = this.onSearchClick.bind(this);
         this.onDeleteClick = this.onDeleteClick.bind(this);
+        this.onEditClick = this.onEditClick.bind(this);
     }
 
     onSearchClick()
@@ -39,6 +40,17 @@ export default class CarListComponent extends React.Component
         this.onSearchClick();
     }
 
+    onEditClick(editedCarName, editedCarPrice)
+    {
+        for(var i=0;i<cars.length;i++)
+        {
+            if(cars[i].name === editedCarName)
+            {
+                cars[i].pricePerDay = editedCarPrice;
+            }
+        }
+    }
+
     render()
     {
         return(
@@ -48,7 +60,7 @@ export default class CarListComponent extends React.Component
                     <button onClick={this.onSearchClick}>Search</button>
                 </div>
                 <div>
-                    {this.state.cars.map(car => (<Car data={car} deleteFunction = {this.onDeleteClick}/>))}
+                    {this.state.cars.map(car => <Car key={car.name} data={car} allCars={cars} deleteFunction={this.onDeleteClick} editFunction={this.onEditClick}/>)}
                 </div>
             </div>
         )
