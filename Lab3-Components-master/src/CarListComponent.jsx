@@ -42,13 +42,9 @@ export default class CarListComponent extends React.Component
 
     onEditClick(editedCarName, editedCarPrice)
     {
-        for(var i=0;i<cars.length;i++)
-        {
-            if(cars[i].name === editedCarName)
-            {
-                cars[i].pricePerDay = editedCarPrice;
-            }
-        }
+        var item = cars.find(car => car.name === editedCarName);
+        if(item)
+            item.pricePerDay = editedCarPrice;
     }
 
     render()

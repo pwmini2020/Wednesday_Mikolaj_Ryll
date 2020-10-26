@@ -33,7 +33,7 @@ export default class Car extends React.Component
             this.setState({
                 editing: false, pricePerDay: document.getElementById("priceTextBox").value,
             })
-            this.editFunction(this.state.name, this.state.pricePerDay);
+            this.editFunction(this.state.name, document.getElementById("priceTextBox").value);
         }
         else
         {
