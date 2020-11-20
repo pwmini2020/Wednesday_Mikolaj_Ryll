@@ -30,6 +30,7 @@ const move_down = {
 const mapDispatchToProps = (dispatch) => {
     return {
         pickKeyPressed: (event) => {
+            console.log(event.key)
             if(event.key === 'w')
                 dispatch(move_up)
             else if(event.key === 's')
@@ -42,18 +43,16 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-
 class Board extends React.Component{
-    constructor(props)
-    {
-        super(props);
+    constructor(props){
+        super(props)
         this.i = 0;
     }
     render(){
         return (
-            <button onKeyPress={this.props.pickKeyPressed} autoFocus={true} style={{"outline":"none"}}>
-                {this.paint().map( (col) => <div style={{"margin":"0,0,0,0"}}> {col.map((color) => <Tile color={color} style={{"margin":"0"}}></Tile>)} </div>)}
-            </button>
+            <button id="mainDiv" onKeyPress={this.props.pickKeyPressed} autoFocus={true} style={{"backgroundColor":"white", "outline":"none"}}>
+                {this.paint().map( (col) => <div key={this.i++} style={{"margin":"0,0,0,0"}}> {col.map((color) => <Tile key={this.i++} color={color} style={{"margin":"0"}}></Tile>)} </div>)}
+            </button>     
         )
     }
     paint() {
